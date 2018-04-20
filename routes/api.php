@@ -1,5 +1,34 @@
 <?php
 
+use App\Post;
+
+Route::get('posts', function() {
+	return Post::all();
+});
+
+Route::get('posts/{id}', function($id) {
+	return Post::find($id);
+});
+
+Route::post('posts', function(Request $req) {
+	return Post::create($req->all);
+});
+
+Route::put('posts/{id}', function(Request $req, $id) {
+	$post = Post::findOrFail($id);
+	$post->update($req->all());
+
+	return $post;
+});
+
+Route::delete('posts/{id}', function($id) {
+	Post::find($id)->delete();
+
+	return 204;
+});
+
+
+
 use Illuminate\Http\Request;
 
 /*
