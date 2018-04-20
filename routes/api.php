@@ -1,6 +1,6 @@
 <?php
 
-use App\Post;
+Use App\Post;
 
 Route::get('posts', function() {
 	return Post::all();
