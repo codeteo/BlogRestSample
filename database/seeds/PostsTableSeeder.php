@@ -11,16 +11,16 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-		Posts::truncate();
+		App\Post::truncate();
 
 		$faker = \Faker\Factory::create();
 
 		// Let's create a few dummy data in our database:
 		for($i = 0; $i < 50; $i++) {
-			Posts::create([
+			App\Post::create([
 				'title' => $faker->sentence,
 				'body' => $faker->paragraph,
-			});
+			]);
 		}
     }
 }
